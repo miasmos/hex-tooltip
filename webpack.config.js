@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
-const Dotenv = require("dotenv-webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -68,9 +66,7 @@ module.exports = (config, argv) => ({
         chunkFilename: "[name].[chunkhash].js",
     },
     plugins: [
-        new Dotenv({ path: `./.${argv.mode}.env` }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ inject: true, template: "src/index.html" }),
-        new CopyPlugin({ patterns: [{ from: "images", to: "images" }] }),
     ],
 });

@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { imagesPath } from "../../constants";
+
+import commonBanner from "../../../images/template_banner_common.png";
+import uncommonBanner from "../../../images/template_banner_uncommon.png";
+import rareBanner from "../../../images/template_banner_rare.png";
+import veryRareBanner from "../../../images/template_banner_very_rare.png";
+import ultraRareBanner from "../../../images/template_banner_ultra_rare.png";
+import eventBanner from "../../../images/template_banner_event.png";
 
 const Tooltip = styled(({ children, className }) => (
     <div className={`tooltip ${className}`}>{children}</div>
@@ -79,7 +85,7 @@ const Tooltip = styled(({ children, className }) => (
         position: relative;
         background-color: black;
         background-repeat: no-repeat;
-        background-image: url(${imagesPath}/template_banner_common.png);
+        background-image: url(${commonBanner});
         background-position: -40px 0px;
         padding: 20px 21px 13px 21px;
         font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -108,23 +114,23 @@ const Tooltip = styled(({ children, className }) => (
     }
 
     .tooltip-banner.uncommon {
-        background-image: url(${imagesPath}/template_banner_uncommon.png);
+        background-image: url(${uncommonBanner});
     }
 
     .tooltip-banner.rare {
-        background-image: url(${imagesPath}/template_banner_rare.png);
+        background-image: url(${rareBanner});
     }
 
     .tooltip-banner.very-rare {
-        background-image: url(${imagesPath}/template_banner_veryrare.png);
+        background-image: url(${veryRareBanner});
     }
 
     .tooltip-banner.ultra-rare {
-        background-image: url(${imagesPath}/template_banner_ultrarare.png);
+        background-image: url(${ultraRareBanner});
     }
 
     .tooltip-banner.event {
-        background-image: url(${imagesPath}/template_banner_event.png);
+        background-image: url(${eventBanner});
     }
 
     .tooltip-body {
@@ -137,7 +143,7 @@ const Tooltip = styled(({ children, className }) => (
         .tooltip-text {
             position: relative;
             z-index: 2;
-            line-height: 18px;
+            line-height: 21px;
         }
 
         .tooltip-flavor {
