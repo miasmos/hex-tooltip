@@ -1,8 +1,8 @@
 {
     "name": "@stephenpoole/hex-tooltip",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Tooltips for Dead by Daylight anywhere on the web.",
-    "main": "dist/index.js",
+    "main": "dist/hex.tooltip.js",
     "types": "dist/index.d.ts",
     "files": [
         "dist/**/*"
@@ -15,7 +15,7 @@
         "docs": "typedoc --excludeExternals --exclude \"**/node_modules/**\"  --name \"Dead By Daylight Tooltips\" --out \"docs\" \"src\"",
         "coverage": "nyc --reporter=lcov yarn test",
         "snyk": "snyk protect",
-        "deploy": "yarn start && yarn test && yarn publish"
+        "deploy": "yarn snyk && yarn start && yarn test && yarn publish --access=public"
     },
     "repository": {
         "type": "git",
