@@ -7,7 +7,7 @@
 ![last commit](https://img.shields.io/github/last-commit/stephenpoole/hex-tooltip)
 ![issues](https://img.shields.io/github/issues/stephenpoole/hex-tooltip)
 
-A complete Dead by Daylight dataset.
+Tooltips for Dead by Daylight anywhere on the web.
 
 ## Getting Started
 
