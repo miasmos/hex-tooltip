@@ -19,14 +19,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/stephenpoole/dbd-tooltips.git"
+        "url": "git+https://github.com/stephenpoole/hex-tooltip.git"
     },
     "author": "Stephen Poole",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/stephenpoole/dbd-tooltips/issues"
+        "url": "https://github.com/stephenpoole/hex-tooltip/issues"
     },
-    "homepage": "https://github.com/stephenpoole/dbd-tooltips#readme",
+    "homepage": "https://github.com/stephenpoole/hex-tooltip#readme",
     "dependencies": {
         "@stephenpoole/deadbydaylight": "^5.0.111",
         "@tippyjs/react": "^4.2.5",
