@@ -1,0 +1,23 @@
+<head>
+    <meta charset="UTF-8" />
+</head>
+<div id="root"></div>
+
+<div class="hex-tooltip">
+
+    [[hex: ruin 3]]
+    [[detective tapp]]
+    [[commodious toolbox]]
+    [[chainsaw]]
+    [[bloody party streamers]]
+    [[the hag]]
+    [[hex: devour hope 2]]
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        for (let item of document.getElementsByClassName("hex-tooltip")) {
+            HexTooltip(item)
+        }
+    })
+</script>
