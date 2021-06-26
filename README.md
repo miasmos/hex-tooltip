@@ -35,15 +35,14 @@ In the browser globally
 <script src="https://cdn.jsdelivr.net/npm/@stephenpoole/hex-tooltip/hex.tooltip.js"></script>
 ```
 
-2. Instantiate and grab some data:
+2. Pass an HTMLElement containing a tooltip tag:
+
+```html
+<div id="hex-tooltip">[[Hex: Ruin]]</div>
+```
 
 ```javascript
-(async () => {
-    const { Language, Killer } = DeadByDaylight;
-    const dbd = DeadByDaylight.Client();
-    const nurse = dbd.killer(Killer.Nurse);
-    console.log(nurse);
-})();
+HexTooltip(document.getElementById("hex-tooltip"));
 ```
 
 In the browser with webpack
@@ -51,19 +50,36 @@ In the browser with webpack
 1. Import `hex-tooltip` into your application:
 
 ```javascript
-import Dbd from "@stephenpoole/hex-tooltip";
+import HexTooltip from "@stephenpoole/hex-tooltip";
 ```
 
-2. Instantiate and grab some data:
+2. Pass an HTMLElement containing a tooltip tag:
 
 ```javascript
-import Dbd, { Language, Killer } from "@stephenpoole/hex-tooltip";
+HexTooltip(document.getElementById("hex-tooltip"));
+```
 
-(async () => {
-    const dbd = Dbd();
-    const nurse = dbd.killer(Killer.Nurse);
-    console.log(nurse);
-})();
+2a. or mount it in your React application
+
+```javascript
+import HexTooltip, { HexTooltipApp, PerkTooltip, PerkModel, DeadByDaylight } from "@stephenpoole/hex-tooltip";
+
+const model = DeadByDaylight.toModel("Hex: Ruin");
+const { rarity, name, description, flavor, owner } = model as PerkModel;
+
+<HexTooltipApp
+    title="[[Hex: Ruin]]"
+    tooltip={
+        <PerkTooltip
+            rarity={rarity}
+            name={name}
+            description={description}
+            flavor={flavor}
+            owner={owner}
+            tier={tier}
+        />
+    }
+/>
 ```
 
 ## Documentation

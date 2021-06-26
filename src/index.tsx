@@ -131,3 +131,14 @@ const parse = (target: HTMLElement): void => {
 };
 
 export default parse;
+export {
+    App as HexTooltipApp,
+    Dbd as DeadByDaylight,
+    AddonModel,
+    ItemModel,
+    ModifierType,
+    OfferingModel,
+    PerkModel,
+    PlayerModel,
+    PowerModel,
+};
