@@ -8,45 +8,53 @@ import veryRareBanner from "../../../images/template_banner_very_rare.png";
 import ultraRareBanner from "../../../images/template_banner_ultra_rare.png";
 import eventBanner from "../../../images/template_banner_event.png";
 
-const Tooltip = styled(({ children, className }) => (
-    <div className={`tooltip ${className}`}>{children}</div>
-))`
+import robotoCondensedLight2 from "../../../fonts/robotocondensed-light-webfont.woff2";
+import robotoCondensedRegular2 from "../../../fonts/robotocondensed-regular-webfont.woff2";
+import robotoCondensedBold2 from "../../../fonts/robotocondensed-bold-webfont.woff2";
+import robotoLight2 from "../../../fonts/roboto-light-webfont.woff2";
+import robotoBold2 from "../../../fonts/roboto-bold-webfont.woff2";
+
+import robotoCondensedLight from "../../../fonts/robotocondensed-light-webfont.woff";
+import robotoCondensedRegular from "../../../fonts/robotocondensed-regular-webfont.woff";
+import robotoCondensedBold from "../../../fonts/robotocondensed-bold-webfont.woff";
+import robotoLight from "../../../fonts/roboto-light-webfont.woff";
+import robotoBold from "../../../fonts/roboto-bold-webfont.woff";
+
+const Tooltip = styled(({ children, className }) => <div className={className}>{children}</div>)`
     @font-face {
         font-family: "RobotoCondensed";
-        src: url("robotocondensed-bold-webfont.woff2") format("woff2"),
-            url("roboto-bold-webfont.woff") format("woff");
+        src: url(${robotoCondensedBold2}) format("woff2"),
+            url(${robotoCondensedBold}) format("woff");
         font-weight: 700;
         font-style: normal;
     }
 
     @font-face {
         font-family: "RobotoCondensed";
-        src: url("robotocondensed-regular-webfont.woff2") format("woff2"),
-            url("roboto-medium-webfont.woff") format("woff");
+        src: url(${robotoCondensedRegular2}) format("woff2"),
+            url(${robotoCondensedRegular}) format("woff");
         font-weight: 400;
         font-style: normal;
     }
 
     @font-face {
         font-family: "RobotoCondensed";
-        src: url("robotocondensed-light-webfont.woff2") format("woff2"),
-            url("roboto-light-webfont.woff") format("woff");
+        src: url(${robotoCondensedLight2}) format("woff2"),
+            url(${robotoCondensedLight}) format("woff");
         font-weight: 100;
         font-style: normal;
     }
 
     @font-face {
         font-family: "Roboto";
-        src: url("roboto-light-webfont.woff2") format("woff2"),
-            url("roboto-light-webfont.woff") format("woff");
+        src: url(${robotoLight2}) format("woff2"), url(${robotoLight}) format("woff");
         font-weight: 100;
         font-style: normal;
     }
 
     @font-face {
         font-family: "Roboto";
-        src: url("roboto-bold-webfont.woff2") format("woff2"),
-            url("roboto-bold-webfont.woff") format("woff");
+        src: url(${robotoBold2}) format("woff2"), url(${robotoBold}) format("woff");
         font-weight: 700;
         font-style: normal;
     }

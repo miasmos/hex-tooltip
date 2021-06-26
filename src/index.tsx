@@ -97,10 +97,18 @@ const mount = (model: DbdModel, element: HTMLElement | Element): void => {
 };
 
 const parse = (target: HTMLElement): void => {
+    const className = target.getAttribute("class");
+    const wasMounted = className && className.includes("hex-tooltip");
+
+    if (wasMounted) {
+        return;
+    }
+
     const text = target.innerHTML;
     if (!text) {
         return;
     }
+
     const parts = text.split(/(\[\[[a-zA-Z0-9:\-\s]*\]\])/g);
     const regex = new RegExp(/^\[\[([a-zA-Z0-9:\-\s]*)\]\]$/g);
     const mounts: [DbdModel, string][] = [];
@@ -119,15 +127,16 @@ const parse = (target: HTMLElement): void => {
         }
         return text;
     });
-    target.innerHTML = elements.join("");
 
-    mounts.forEach(([model, className]) => {
-        const elements = document.getElementsByClassName(className);
-        if (elements[0]) {
-            console.log(elements[0]);
-            mount(model, elements[0]);
-        }
-    });
+    if (mounts.length > 0) {
+        target.innerHTML = elements.join("");
+        mounts.forEach(([model, className]) => {
+            const elements = document.getElementsByClassName(className);
+            if (elements[0]) {
+                mount(model, elements[0]);
+            }
+        });
+    }
 };
 
 export default parse;

@@ -19,23 +19,18 @@ module.exports = (config, argv) => ({
             },
             {
                 test: /\.css$/i,
+                exclude: /node_modules/,
                 use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.jpg|.jpeg|.png|.gif|.svg$/,
                 exclude: /node_modules/,
-                loader: "file-loader",
-                options: {
-                    name: "[name].[ext]",
-                },
+                type: "asset/inline",
             },
             {
                 test: /\.woff2?$/,
                 exclude: /node_modules/,
-                loader: "file-loader",
-                options: {
-                    name: "[name].[ext]",
-                },
+                type: "asset/inline",
             },
             { enforce: "pre", test: /\.ts$/, loader: "source-map-loader" },
         ],
@@ -58,6 +53,7 @@ module.exports = (config, argv) => ({
         filename: "hex.tooltip.js",
         globalObject: "this",
         umdNamedDefine: true,
+        publicPath: "",
         library: {
             name: "HexTooltip",
             type: "umd",

@@ -19,7 +19,7 @@ const Target = ({ title, tooltip }: Props): JSX.Element => {
 
     return (
         <Tippy visible={visible} render={(): ReactNode => tooltip}>
-            <StyledTarget onMouseOver={show} onMouseOut={hide}>
+            <StyledTarget className="hex-tooltip-target" onMouseOver={show} onMouseOut={hide}>
                 {title}
             </StyledTarget>
         </Tippy>
