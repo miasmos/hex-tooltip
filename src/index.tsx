@@ -109,8 +109,8 @@ const parse = (target: HTMLElement): void => {
         return;
     }
 
-    const parts = text.split(/(\[\[[a-zA-Z0-9:\-"_+=\][)('!%$#@*&\s?]*\]\])/g);
-    const regex = new RegExp(/^\[\[([a-zA-Z0-9:\-"_+=\][)('!%$#@*&\s?]*)\]\]$/g);
+    const parts = text.split(/(\[\[[^<>]+\]\])/g);
+    const regex = new RegExp(/^\[\[([^<>]+)\]\]$/g);
     const mounts: [DbdModel, string][] = [];
     const elements = parts.map(text => {
         const [, rootText] = regex.exec(text) || [];
