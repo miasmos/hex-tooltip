@@ -101,6 +101,7 @@ const Tooltip = styled(({ children, className }) => <div className={className}>{
         .tooltip-title {
             font-size: 22.5px;
             text-transform: uppercase;
+            line-height: 15px;
         }
 
         .tooltip-subtitle {
@@ -110,6 +111,7 @@ const Tooltip = styled(({ children, className }) => <div className={className}>{
             color: #fff;
             opacity: 0.9;
             margin-top: 8px;
+            line-height: 15px;
         }
 
         .ticks {
