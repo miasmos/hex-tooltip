@@ -56,7 +56,9 @@ const PerkTooltip = ({
             </div>
             <div className="tooltip-body">
                 <div className="tooltip-text" dangerouslySetInnerHTML={{ __html: description }} />
-                {!!flavor && <div className="tooltip-flavor">{flavor}</div>}
+                {!!flavor && (
+                    <div className="tooltip-flavor" dangerouslySetInnerHTML={{ __html: flavor }} />
+                )}
                 <div className="tooltip-gradient" />
             </div>
         </Tooltip>
