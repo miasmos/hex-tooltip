@@ -85,7 +85,7 @@ const { rarity, name, description, flavor, owner } = model as PerkModel;
 ## Documentation
 
 You'll find the type documentation here:
-[Documentation](https://stephenpoole.github.io/hex-tooltip)
+[Documentation](https://stephenpoole.github.io/hex-tooltip/modules.html)
 
 ## License
 
