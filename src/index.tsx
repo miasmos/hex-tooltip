@@ -114,10 +114,8 @@ const parse = (target: HTMLElement): void => {
     const mounts: [DbdModel, string][] = [];
     const elements = parts.map(text => {
         const [, rootText] = regex.exec(text) || [];
-        console.log(rootText);
         if (rootText) {
             const model = Dbd.toModel(rootText);
-            console.log(model);
 
             if (model) {
                 const className = `hex-tooltip-${Math.random().toString(16).substring(2)}`;
