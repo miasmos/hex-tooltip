@@ -26,7 +26,7 @@ const PerkTooltip = ({
     const subtitleKey = owner.isEmpty ? "perkSubtitle" : "perkSubtitle.named";
     const subtitle = t(subtitleKey, {
         rarity: t(rarityKey),
-        name: owner.name,
+        ...(!owner.isEmpty && { name: owner.name }),
     });
     let tick;
     switch (tier) {

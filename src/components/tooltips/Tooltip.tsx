@@ -85,7 +85,7 @@ const Tooltip = styled(({ children, className }) => <div className={className}>{
     top: 0;
     pointer-events: none;
     z-index: 100;
-    max-width: 460px;
+    width: 460px;
 
     .tooltip-banner {
         display: flex;

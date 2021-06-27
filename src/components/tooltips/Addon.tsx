@@ -20,7 +20,7 @@ const AddonTooltip = ({
     const subtitleKey = owner.isEmpty ? "addonSubtitle" : "addonSubtitle.named";
     const subtitle = t(subtitleKey, {
         rarity: t(rarityKey),
-        name: owner.power?.name,
+        ...(!owner.isEmpty && { name: owner.power?.name }),
     });
 
     return (
