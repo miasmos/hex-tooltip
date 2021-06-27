@@ -124,6 +124,7 @@ const parse = (target: HTMLElement): void => {
                 mounts.push([model, className]);
                 return span.toString();
             }
+            return rootText;
         }
         return text;
     });
