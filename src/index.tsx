@@ -109,14 +109,15 @@ const parse = (target: HTMLElement): void => {
         return;
     }
 
-    const parts = text.split(/(\[\[[a-zA-Z0-9:\-\s]*\]\])/g);
-    const regex = new RegExp(/^\[\[([a-zA-Z0-9:\-\s]*)\]\]$/g);
+    const parts = text.split(/(\[\[[a-zA-Z0-9:\-"_+=\][)('!%$#@*&\s?]*\]\])/g);
+    const regex = new RegExp(/^\[\[([a-zA-Z0-9:\-"_+=\][)('!%$#@*&\s?]*)\]\]$/g);
     const mounts: [DbdModel, string][] = [];
     const elements = parts.map(text => {
         const [, rootText] = regex.exec(text) || [];
-
+        console.log(rootText);
         if (rootText) {
             const model = Dbd.toModel(rootText);
+            console.log(model);
 
             if (model) {
                 const className = `hex-tooltip-${Math.random().toString(16).substring(2)}`;
