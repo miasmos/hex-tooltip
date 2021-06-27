@@ -35,16 +35,14 @@ module.exports = (config, argv) => ({
             { enforce: "pre", test: /\.ts$/, loader: "source-map-loader" },
         ],
     },
-    ...(argv.NODE_ENV === "production" && {
-        optimization: {
-            minimize: true,
-            minimizer: [
-                new TerserPlugin({
-                    terserOptions: { output: { ascii_only: true } },
-                }),
-            ],
-        },
-    }),
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                terserOptions: { output: { ascii_only: true } },
+            }),
+        ],
+    },
     devtool: "source-map",
     target: "web",
     output: {

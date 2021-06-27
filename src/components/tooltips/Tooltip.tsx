@@ -99,12 +99,14 @@ const Tooltip = styled(({ children, className }) => <div className={className}>{
         font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
         .tooltip-title {
+            font-size: 22.5px;
             text-transform: uppercase;
         }
 
         .tooltip-subtitle {
             text-transform: uppercase;
             font-weight: 100;
+            font-size: 15px;
             color: #fff;
             opacity: 0.9;
             margin-top: 8px;
@@ -149,6 +151,7 @@ const Tooltip = styled(({ children, className }) => <div className={className}>{
         font-size: 16px;
 
         .tooltip-text {
+            font-size: 16px;
             position: relative;
             z-index: 2;
             line-height: 21px;
