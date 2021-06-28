@@ -3,13 +3,15 @@ import { useTranslation } from "react-i18next";
 import { OfferingModel } from "@stephenpoole/deadbydaylight";
 import ClassName from "../../util/className";
 import Tooltip from "./Tooltip";
+import Translation from "../../util/translation";
 
 type Props = Pick<OfferingModel, "rarity" | "name" | "description" | "flavor">;
 
 const OfferingTooltip = ({ rarity: rarityNum, name, description, flavor }: Props): JSX.Element => {
     const { t } = useTranslation();
     const rarity = ClassName.rarity(rarityNum);
-    const subtitle = t("offeringSubtitle", { rarity });
+    const rarityKey = Translation.rarity(rarityNum);
+    const subtitle = t("offeringSubtitle", { rarity: t(rarityKey) });
 
     return (
         <Tooltip className="offering-tooltip">

@@ -10,8 +10,8 @@ type Props = Pick<ItemModel, "rarity" | "name" | "description" | "flavor">;
 const ItemTooltip = ({ rarity: rarityNum, name, description, flavor }: Props): JSX.Element => {
     const { t } = useTranslation();
     const rarityClass = ClassName.rarity(rarityNum);
-    const rarity = Translation.rarity(rarityNum);
-    const subtitle = t("itemSubtitle", { rarity });
+    const rarityKey = Translation.rarity(rarityNum);
+    const subtitle = t("itemSubtitle", { rarity: t(rarityKey) });
 
     return (
         <Tooltip className="addon-tooltip">
