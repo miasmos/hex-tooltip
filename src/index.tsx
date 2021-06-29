@@ -125,8 +125,9 @@ const parse = (target: HTMLElement): void => {
                 return span.toString();
             }
         }
-        return rootText;
+        return rootText || text;
     });
+    console.log(elements);
 
     if (mounts.length > 0) {
         target.innerHTML = elements.join("");
