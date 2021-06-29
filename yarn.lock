@@ -744,10 +744,10 @@
     tslib "^2.0.0"
     upath "2.0.1"
 
-"@stephenpoole/deadbydaylight@^5.0.114":
-  version "5.0.114"
-  resolved "https://registry.yarnpkg.com/@stephenpoole/deadbydaylight/-/deadbydaylight-5.0.114.tgz#ba65be2c2755b7ab79b03c3a56592d2be9528cfd"
-  integrity sha512-/tTxkkqrlxaMJM9lLhUm3VI16ZEAgdd+rFGsA5sQ7664Vzgdo9wsB6GnMSvsti+GRu3pV1cOlOHcSXfMQUukCw==
+"@stephenpoole/deadbydaylight@^5.0.115":
+  version "5.0.115"
+  resolved "https://registry.yarnpkg.com/@stephenpoole/deadbydaylight/-/deadbydaylight-5.0.115.tgz#34bc310789b04a2b26a6b8c3f9664f9dea32ba7d"
+  integrity sha512-lAV0qivQBNAKG/aU8w8p8xavjkgytou24RmVHiSUid5EIoTB/8TP6dIdZixW0mMaZ34ap37/OmxEOfCHdrBklw==
   dependencies:
     "@babel/runtime" "^7.14.6"
 

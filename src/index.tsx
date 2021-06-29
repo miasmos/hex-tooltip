@@ -9,6 +9,7 @@ import {
     PlayerModel,
     PowerModel,
 } from "@stephenpoole/deadbydaylight";
+import unescape from "lodash/unescape";
 import PerkTooltip from "./components/tooltips/Perk";
 import AddonTooltip from "./components/tooltips/Addon";
 import ItemTooltip from "./components/tooltips/Item";
@@ -109,13 +110,13 @@ const parse = (target: HTMLElement): void => {
         return;
     }
 
-    const parts = text.split(/(\[\[[^<>]+\]\])/g);
-    const regex = new RegExp(/^\[\[([^<>]+)\]\]$/g);
+    const parts = text.split(/(\[\[[^<>]*?\]\])/g);
+    const regex = new RegExp(/^\[\[([^<>]*?)\]\]$/g);
     const mounts: [DbdModel, string][] = [];
     const elements = parts.map(text => {
         const [, rootText] = regex.exec(text) || [];
         if (rootText) {
-            const model = Dbd.toModel(rootText);
+            const model = Dbd.toModel(unescape(rootText));
 
             if (model) {
                 const className = `hex-tooltip-${Math.random().toString(16).substring(2)}`;

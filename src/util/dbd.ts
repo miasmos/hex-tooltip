@@ -15,8 +15,8 @@ class Dbd {
         const regex = new RegExp(/\w\s([1-3]{1})$/g);
         const [, tier] = regex.exec(text) || [];
         const input = tier ? text.substring(0, text.lastIndexOf(" ")) : text;
-
         const perk = dbd.perk(input) as PerkModel;
+
         if (!perk.isEmpty) {
             if (tier) {
                 perk.setTier(Number(tier));
