@@ -39,7 +39,7 @@ module.exports = (config, argv) => ({
         minimize: true,
         minimizer: [
             new TerserPlugin({
-                terserOptions: { output: { ascii_only: true } },
+                terserOptions: { output: { ascii_only: true, comments: false } },
             }),
         ],
     },
