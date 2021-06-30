@@ -15,7 +15,7 @@
         "module": "commonjs",
         "skipLibCheck": true,
         "moduleResolution": "node",
-        "removeComments": false,
+        "removeComments": true,
         "target": "es5",
         "lib": ["ESNext", "DOM"],
         "preserveSymlinks": true,
