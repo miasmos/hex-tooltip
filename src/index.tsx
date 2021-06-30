@@ -24,7 +24,7 @@ const mount = (model: DbdModel, element: HTMLElement | Element): void => {
     let tooltip: ReactElement | undefined;
     switch (model.modifier) {
         case ModifierType.Addon: {
-            const { rarity, name, description, flavor, owner } = model as AddonModel;
+            const { rarity, name, description, flavor, owner, type } = model as AddonModel;
             tooltip = (
                 <AddonTooltip
                     rarity={rarity}
@@ -32,6 +32,7 @@ const mount = (model: DbdModel, element: HTMLElement | Element): void => {
                     description={description}
                     flavor={flavor}
                     owner={owner}
+                    type={type}
                 />
             );
             break;

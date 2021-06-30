@@ -18,10 +18,11 @@
     "hard": "Hard",
     "killer": "Killer",
     "survivor": "Survivor",
-    "key": "Skeleton Key",
-    "tools": "Worn Out Tools",
+    "key": "Key",
+    "toolbox": "Toolbox",
     "map": "Map",
-    "aidKit": "Camping Aid Kit",
+    "aidKit": "Aid-Kit",
     "flashlight": "Flashlight",
+    "firecracker": "Firecracker",
     "empty": "Empty"
 }

@@ -1,4 +1,4 @@
-import { Difficulty, Rarity } from "@stephenpoole/deadbydaylight";
+import { Difficulty, ItemType, Rarity } from "@stephenpoole/deadbydaylight";
 
 class Translation {
     static rarity(key: Rarity): string {
@@ -15,6 +15,25 @@ class Translation {
                 return "ultraRare";
             case Rarity.Event:
                 return "event";
+            default:
+                return "";
+        }
+    }
+
+    static item(key: ItemType): string {
+        switch (key) {
+            case ItemType.AidKit:
+                return "aidKit";
+            case ItemType.Firecracker:
+                return "firecracker";
+            case ItemType.Flashlight:
+                return "flashlight";
+            case ItemType.Key:
+                return "key";
+            case ItemType.Map:
+                return "map";
+            case ItemType.Toolbox:
+                return "toolbox";
             default:
                 return "";
         }

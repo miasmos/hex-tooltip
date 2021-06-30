@@ -5,22 +5,22 @@ import Tooltip from "./Tooltip";
 import ClassName from "../../util/className";
 import Translation from "../../util/translation";
 
-type Props = Pick<AddonModel, "rarity" | "name" | "description" | "flavor" | "owner">;
+type Props = Pick<AddonModel, "rarity" | "name" | "description" | "flavor" | "owner" | "type">;
 
 const AddonTooltip = ({
     rarity: rarityNum,
     name,
     description,
     flavor,
+    type,
     owner,
 }: Props): JSX.Element => {
     const { t } = useTranslation();
     const rarityKey = Translation.rarity(rarityNum);
     const rarityClass = ClassName.rarity(rarityNum);
-    const subtitleKey = owner.isEmpty ? "addonSubtitle" : "addonSubtitle.named";
-    const subtitle = t(subtitleKey, {
+    const subtitle = t("addonSubtitle.named", {
         rarity: t(rarityKey),
-        ...(!owner.isEmpty && { name: owner.power?.name }),
+        name: owner.isEmpty ? t(Translation.item(type)) : owner.power?.name,
     });
 
     return (
