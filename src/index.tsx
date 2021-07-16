@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import {
     AddonModel,
     ItemModel,
+    Language,
     ModifierType,
     OfferingModel,
     PerkModel,
@@ -98,9 +99,23 @@ const mount = (model: DbdModel, element: HTMLElement | Element): void => {
     ReactDOM.render(<App title={`[[${model.name}]]`} tooltip={tooltip} />, element);
 };
 
-const parse = (target: HTMLElement): void => {
+const userLanguage = (): Language => {
+    const docLang = document.documentElement.lang.toLowerCase();
+    if (docLang) {
+        return docLang as Language;
+    }
+
+    const navLang = navigator.language;
+    if (navLang) {
+        return navLang.substring(0, 2).toLowerCase() as Language;
+    }
+    return Language.English;
+};
+
+const parse = (target: HTMLElement, language?: Language): void => {
     const className = target.getAttribute("class");
     const wasMounted = className && className.includes("hex-tooltip");
+    const newLanguage = language || userLanguage();
 
     if (wasMounted) {
         return;
@@ -117,7 +132,7 @@ const parse = (target: HTMLElement): void => {
     const elements = parts.map(text => {
         const [, rootText] = regex.exec(text) || [];
         if (rootText) {
-            const model = Dbd.toModel(unescape(rootText));
+            const model = Dbd.toModel(unescape(rootText), newLanguage);
 
             if (model) {
                 const className = `hex-tooltip-${Math.random().toString(16).substring(2)}`;

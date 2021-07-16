@@ -5,16 +5,16 @@ import DeadByDaylight, {
     AddonModel,
     OfferingModel,
     ItemModel,
-} from "@stephenpoole/deadbydaylight";
+    Language,
+} from "@stephenpoole/deadbydaylight/all";
 import { DbdModel } from "../types";
 
-const dbd = DeadByDaylight();
-
 class Dbd {
-    static toModel(text: string): DbdModel | undefined {
+    static toModel(text: string, language = Language.English): DbdModel | undefined {
         const regex = new RegExp(/\w\s([1-3]{1})$/g);
         const [, tier] = regex.exec(text) || [];
         const input = tier ? text.substring(0, text.lastIndexOf(" ")) : text;
+        const dbd = DeadByDaylight(language);
         const perk = dbd.perk(input) as PerkModel;
 
         if (!perk.isEmpty) {

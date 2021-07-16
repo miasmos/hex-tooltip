@@ -32,7 +32,7 @@ In the browser globally
 1. Insert the script tag in your html head:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@stephenpoole/hex-tooltip/hex.tooltip.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@stephenpoole/hex-tooltip/dist/hex.tooltip.js"></script>
 ```
 
 2. Pass an HTMLElement containing a tooltip tag:
