@@ -180,7 +180,7 @@ const Tooltip = styled(({ children, className }) => <div className={className}>{
         }
     }
 
-    .tooltip-text .highlight1 {
+    .tooltip-text .Highlight1 {
         color: #fed506;
         font-size: 1.4em;
         font-weight: bold;
@@ -188,21 +188,21 @@ const Tooltip = styled(({ children, className }) => <div className={className}>{
         white-space: nowrap;
     }
 
-    .tooltip-text .highlight2 {
+    .tooltip-text .Highlight2 {
         color: #c55511;
         font-size: 1.4em;
         font-weight: bold;
         white-space: nowrap;
     }
 
-    .tooltip-text .highlight3 {
+    .tooltip-text .Highlight3 {
         color: #d60000;
         font-size: 1.4em;
         font-weight: bold;
         white-space: nowrap;
     }
 
-    .tooltip-text .highlight4 {
+    .tooltip-text .Highlight4 {
         color: #a42afb;
         font-size: 1.4em;
         font-weight: bold;
