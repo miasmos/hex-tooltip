@@ -145,6 +145,23 @@ const Tooltip = styled(({ children, className }) => <div className={className}>{
         background-image: url(${eventBanner});
     }
 
+    .tooltip-image {
+        position: absolute;
+        right: 0;
+        bottom: -80px;
+        height: 256px;
+        width: 256px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .tooltip-image--player {
+        right: -46px;
+        bottom: -17px;
+    }
+
     .tooltip-body {
         position: relative;
         padding: 20px 19px 27px 19px;

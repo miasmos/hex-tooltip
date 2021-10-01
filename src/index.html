@@ -1,28 +1,79 @@
-<style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-</style>
-<div class="test">[[repressed alliance]]</div>
-
-<div class="test">[[quick & quiet]] [[repressed alliance]]</div>
-<div class="test">[[quick & quiet]]</div>
-<div class="test"><div>[[the cenobite]]</div></div>
-<div class="test"><div>some [[soul guard]] text</div></div>
-<div class="test">[[summons of pain]][[hex: ruin]]</div>
-<div>
-    <div>[[the cenobite]]</div>
-    [[the wraith]]
-</div>
-<div>[[the wraith]]</div>
-<div class="test">
-    <div>some text</div>
-    [[deadlock]] [[hex: plaything]] [[scourge hook: gift of pain]] [[sponge]] [[scraps]]
-</div>
-<script>
-    window.addEventListener("load", () => {
-        for (let item of document.getElementsByClassName("test")) {
-            HexTooltip(item);
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #333;
+            color: #fff;
         }
-    });
-</script>
+        .test1 {
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@stephenpoole/deadbydaylight@5.3.0-alpha5/en/deadbydaylight.js"></script>
+
+    <script>
+        window.addEventListener("load", () => {
+            for (let item of document.getElementsByClassName("test1")) {
+                HexTooltip(item, "en");
+            }
+        });
+    </script>
+
+    <div id="test1"></div>
+    <script>
+        let output = "";
+        let showImage = false;
+        const target = document.getElementById("test1");
+        const dbd = DeadByDaylight.Client();
+
+        dbd.killers().forEach(item => {
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.powers().forEach(item => {
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.survivors().forEach(item => {
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.killerPerks().forEach(item => {
+            output += `<div class="test1">[[${item.name} 1]]</div>`;
+            output += `<div class="test1">[[${item.name} 2]]</div>`;
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.survivorPerks().forEach(item => {
+            output += `<div class="test1">[[${item.name} 1]]</div>`;
+            output += `<div class="test1">[[${item.name} 2]]</div>`;
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.killerAddons().forEach(item => {
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.survivorAddons().forEach(item => {
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.offerings().forEach(item => {
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.realms().forEach(item => {
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        dbd.maps().forEach(item => {
+            output += `<div class="test1">[[${item.name}]]</div>`;
+            if (showImage) output += `<img src="${item.image}"/>`;
+        });
+        // output += '<div class="test1">[[Dark Cincture]]</div>';
+        target.innerHTML = output;
+    </script>
+</html>

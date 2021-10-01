@@ -4,7 +4,7 @@ import Tippy from "@tippyjs/react/headless";
 
 interface Props {
     title: string;
-    tooltip: ReactNode;
+    tooltip: (show: boolean) => ReactNode;
 }
 
 const StyledTarget = styled.span`
@@ -18,7 +18,7 @@ const Target = ({ title, tooltip }: Props): JSX.Element => {
     const hide = (): void => setVisible(false);
 
     return (
-        <Tippy visible={visible} render={(): ReactNode => tooltip}>
+        <Tippy visible={visible} render={() => tooltip(visible)}>
             <StyledTarget className="hex-tooltip-target" onMouseOver={show} onMouseOut={hide}>
                 {title}
             </StyledTarget>

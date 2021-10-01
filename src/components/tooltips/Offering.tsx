@@ -5,9 +5,19 @@ import ClassName from "../../util/className";
 import Tooltip from "./Tooltip";
 import Translation from "../../util/translation";
 
-type Props = Pick<OfferingModel, "rarity" | "name" | "description" | "flavor">;
+interface Props
+    extends Pick<OfferingModel, "rarity" | "name" | "description" | "flavor" | "image"> {
+    showImage?: boolean;
+}
 
-const OfferingTooltip = ({ rarity: rarityNum, name, description, flavor }: Props): JSX.Element => {
+const OfferingTooltip = ({
+    rarity: rarityNum,
+    name,
+    description,
+    flavor,
+    image,
+    showImage = false,
+}: Props): JSX.Element => {
     const { t } = useTranslation();
     const rarity = ClassName.rarity(rarityNum);
     const rarityKey = Translation.rarity(rarityNum);
@@ -15,6 +25,11 @@ const OfferingTooltip = ({ rarity: rarityNum, name, description, flavor }: Props
 
     return (
         <Tooltip className="offering-tooltip">
+            {showImage && (
+                <div className="tooltip-image">
+                    <img src={image} alt={name} />
+                </div>
+            )}
             <div className={`tooltip-banner ${rarity}`}>
                 <div className="tooltip-title-left">
                     <h2 className="tooltip-title">{name}</h2>

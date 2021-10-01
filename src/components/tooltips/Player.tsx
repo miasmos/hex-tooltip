@@ -6,7 +6,9 @@ import Tooltip from "./Tooltip";
 import Translation from "../../util/translation";
 import ClassName from "../../util/className";
 
-type Props = Pick<PlayerModel, "name" | "description" | "difficulty">;
+interface Props extends Pick<PlayerModel, "name" | "description" | "difficulty" | "image"> {
+    showImage?: boolean;
+}
 
 const StyledTooltip = styled(Tooltip)`
     & .tooltip-banner {
@@ -14,13 +16,24 @@ const StyledTooltip = styled(Tooltip)`
     }
 `;
 
-const PlayerTooltip = ({ name, description, difficulty }: Props): JSX.Element => {
+const PlayerTooltip = ({
+    name,
+    description,
+    difficulty,
+    image,
+    showImage = false,
+}: Props): JSX.Element => {
     const { t } = useTranslation();
     const difficultyText = t(Translation.difficulty(difficulty));
     const difficultyClass = ClassName.difficulty(difficulty);
 
     return (
         <StyledTooltip className="player-tooltip">
+            {showImage && (
+                <div className="tooltip-image tooltip-image--player">
+                    <img src={image} alt={name} />
+                </div>
+            )}
             <div className="tooltip-banner">
                 <div className="tooltip-title-left">
                     <h2 className="tooltip-title">{name}</h2>

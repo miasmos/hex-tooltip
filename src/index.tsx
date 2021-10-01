@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { ReactElement } from "react";
 import ReactDOM from "react-dom";
 import {
@@ -17,86 +18,120 @@ import ItemTooltip from "./components/tooltips/Item";
 import OfferingTooltip from "./components/tooltips/Offering";
 import PowerTooltip from "./components/tooltips/Power";
 import PlayerTooltip from "./components/tooltips/Player";
-import App from "./components/App";
+import App, { AppNoHoverComponent } from "./components/App";
 import Dbd from "./util/dbd";
 import { DbdModel } from "./types";
 
-const mount = (model: DbdModel, element: HTMLElement | Element): void => {
-    let tooltip: ReactElement | undefined;
-    switch (model.modifier) {
-        case ModifierType.Addon: {
-            const { rarity, name, description, flavor, owner, type } = model as AddonModel;
-            tooltip = (
-                <AddonTooltip
-                    rarity={rarity}
-                    name={name}
-                    description={description}
-                    flavor={flavor}
-                    owner={owner}
-                    type={type}
-                />
-            );
-            break;
+const getTooltip =
+    (model: DbdModel): (() => ReactElement | undefined) =>
+    (isTooltipVisible = false) => {
+        let tooltip: ReactElement | undefined;
+        switch (model.modifier) {
+            case ModifierType.Addon: {
+                const { rarity, name, description, flavor, owner, type, image } =
+                    model as AddonModel;
+                tooltip = (
+                    <AddonTooltip
+                        rarity={rarity}
+                        name={name}
+                        description={description}
+                        flavor={flavor}
+                        owner={owner}
+                        type={type}
+                        image={image}
+                        showImage={isTooltipVisible}
+                    />
+                );
+                break;
+            }
+            case ModifierType.Perk: {
+                const { rarity, name, description, flavor, owner, tier, image } =
+                    model as PerkModel;
+                tooltip = (
+                    <PerkTooltip
+                        rarity={rarity}
+                        name={name}
+                        description={description}
+                        flavor={flavor}
+                        owner={owner}
+                        tier={tier}
+                        image={image}
+                        showImage={isTooltipVisible}
+                    />
+                );
+                break;
+            }
+            case ModifierType.Item: {
+                const { rarity, name, description, flavor, image } = model as ItemModel;
+                tooltip = (
+                    <ItemTooltip
+                        rarity={rarity}
+                        name={name}
+                        description={description}
+                        flavor={flavor}
+                        image={image}
+                        showImage={isTooltipVisible}
+                    />
+                );
+                break;
+            }
+            case ModifierType.Player: {
+                const { name, description, difficulty, image } = model as PlayerModel;
+                tooltip = (
+                    <PlayerTooltip
+                        name={name}
+                        description={description}
+                        difficulty={difficulty}
+                        image={image}
+                        showImage={isTooltipVisible}
+                    />
+                );
+                break;
+            }
+            case ModifierType.Power: {
+                const { name, description, image } = model as PowerModel;
+                tooltip = (
+                    <PowerTooltip
+                        name={name}
+                        description={description}
+                        image={image}
+                        showImage={isTooltipVisible}
+                    />
+                );
+                break;
+            }
+            case ModifierType.Offering: {
+                const { rarity, name, description, flavor, image } = model as OfferingModel;
+                tooltip = (
+                    <OfferingTooltip
+                        rarity={rarity}
+                        name={name}
+                        description={description}
+                        flavor={flavor}
+                        image={image}
+                        showImage={isTooltipVisible}
+                    />
+                );
+                break;
+            }
+            default:
+            // noop
         }
-        case ModifierType.Perk: {
-            const { rarity, name, description, flavor, owner, tier } = model as PerkModel;
-            tooltip = (
-                <PerkTooltip
-                    rarity={rarity}
-                    name={name}
-                    description={description}
-                    flavor={flavor}
-                    owner={owner}
-                    tier={tier}
-                />
-            );
-            break;
-        }
-        case ModifierType.Item: {
-            const { rarity, name, description, flavor } = model as ItemModel;
-            tooltip = (
-                <ItemTooltip
-                    rarity={rarity}
-                    name={name}
-                    description={description}
-                    flavor={flavor}
-                />
-            );
-            break;
-        }
-        case ModifierType.Player: {
-            const { name, description, difficulty } = model as PlayerModel;
-            tooltip = (
-                <PlayerTooltip name={name} description={description} difficulty={difficulty} />
-            );
-            break;
-        }
-        case ModifierType.Power: {
-            const { name, description } = model as PowerModel;
-            tooltip = <PowerTooltip name={name} description={description} />;
-            break;
-        }
-        case ModifierType.Offering: {
-            const { rarity, name, description, flavor } = model as OfferingModel;
-            tooltip = (
-                <OfferingTooltip
-                    rarity={rarity}
-                    name={name}
-                    description={description}
-                    flavor={flavor}
-                />
-            );
-            break;
-        }
-        default:
-        // noop
-    }
 
-    if (!tooltip) {
-        return;
-    }
+        return tooltip;
+    };
 
-    ReactDOM.render(<App title={`[[${model.name}]]`} tooltip={tooltip} />, element);
+const mount = (
+    name: string,
+    tooltip: () => ReactElement | undefined,
+    element: HTMLElement | Element,
+    tooltipOnly = false
+) => {
+    if (tooltipOnly) {
+        ReactDOM.render(<AppNoHoverComponent tooltip={tooltip} />, element);
+    } else {
+        ReactDOM.render(<App title={`[[${name}]]`} tooltip={tooltip} />, element);
+    }
 };
 
 const userLanguage = (): Language => {
@@ -112,7 +147,7 @@ const userLanguage = (): Language => {
     return Language.English;
 };
 
-const parse = (target: HTMLElement, language?: Language): void => {
+const parse = (target: HTMLElement, language?: Language, tooltipOnly = false): void => {
     const className = target.getAttribute("class");
     const wasMounted = className && className.includes("hex-tooltip");
     const newLanguage = language || userLanguage();
@@ -149,7 +184,10 @@ const parse = (target: HTMLElement, language?: Language): void => {
         mounts.forEach(([model, className]) => {
             const elements = document.getElementsByClassName(className);
             if (elements[0]) {
-                mount(model, elements[0]);
+                const tooltip = getTooltip(model);
+                if (tooltip) {
+                    mount(model.name, tooltip, elements[0], tooltipOnly);
+                }
             }
         });
     }

@@ -9,8 +9,11 @@ import tick1 from "../../../images/tick1.png";
 import tick2 from "../../../images/tick2.png";
 import tick3 from "../../../images/tick3.png";
 
-type Props = Pick<PerkModel, "rarity" | "name" | "description" | "flavor" | "owner"> &
-    Partial<Pick<PerkModel, "tier">>;
+interface Props
+    extends Pick<PerkModel, "rarity" | "name" | "description" | "flavor" | "owner" | "image">,
+        Partial<Pick<PerkModel, "tier">> {
+    showImage?: boolean;
+}
 
 const PerkTooltip = ({
     rarity: rarityNum,
@@ -19,6 +22,8 @@ const PerkTooltip = ({
     description,
     flavor,
     owner,
+    image,
+    showImage = false,
 }: Props): JSX.Element => {
     const { t } = useTranslation();
     const rarityKey = Translation.rarity(rarityNum);
@@ -43,6 +48,11 @@ const PerkTooltip = ({
 
     return (
         <Tooltip className="perk-tooltip">
+            {showImage && (
+                <div className="tooltip-image">
+                    <img src={image} alt={name} />
+                </div>
+            )}
             <div className={`tooltip-banner tier${tier} ${rarityClass}`}>
                 <div className="tooltip-title-left">
                     <h2 className="tooltip-title">{name}</h2>
