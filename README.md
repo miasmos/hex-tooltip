@@ -11,6 +11,8 @@
 
 Tooltips for Dead by Daylight anywhere on the web.
 
+<img src="https://hextooltip.com/ruin.jpg" > 
+
 ## Getting Started
 
 Install `hex-tooltip` and save to your package.json in one easy step.
@@ -38,6 +40,7 @@ In the browser globally
 ```
 
 2. Pass an HTMLElement containing a tooltip tag:
+[Try it out](https://codepen.io/stephenpoole/pen/bGRJqNe)  
 
 ```html
 <div id="hex-tooltip"><span class="hex-tooltip-959f26b8824a7"></span></div>
