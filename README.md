@@ -1,3 +1,5 @@
+<img src="https://hextooltip.com/logo.svg" width="100" height="100"> 
+
 # Hex: Tooltip
 
 [![npm version](https://badge.fury.io/js/%40stephenpoole%2Fhex-tooltip.svg)](https://badge.fury.io/js/%40stephenpoole%2Fhex-tooltip)
@@ -8,6 +10,8 @@
 ![issues](https://img.shields.io/github/issues/stephenpoole/hex-tooltip)
 
 Tooltips for Dead by Daylight anywhere on the web.
+
+<img src="https://hextooltip.com/ruin.jpg" > 
 
 ## Getting Started
 
@@ -36,9 +40,10 @@ In the browser globally
 ```
 
 2. Pass an HTMLElement containing a tooltip tag:
+[Try it out](https://codepen.io/stephenpoole/pen/bGRJqNe)  
 
 ```html
-<div id="hex-tooltip">[[Hex: Ruin]]</div>
+<div id="hex-tooltip"><span class="hex-tooltip-959f26b8824a7"></span></div>
 ```
 
 ```javascript
@@ -68,7 +73,7 @@ const model = DeadByDaylight.toModel("Hex: Ruin");
 const { rarity, name, description, flavor, owner } = model as PerkModel;
 
 <HexTooltipApp
-    title="[[Hex: Ruin]]"
+    title="<span class="hex-tooltip-d9d3e49cb23dd"></span>"
     tooltip={
         <PerkTooltip
             rarity={rarity}
