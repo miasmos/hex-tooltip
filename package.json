@@ -28,7 +28,7 @@
     },
     "homepage": "https://github.com/stephenpoole/hex-tooltip#readme",
     "dependencies": {
-        "@stephenpoole/deadbydaylight": "^5.3.0-alpha5",
+        "@stephenpoole/deadbydaylight": "^5.3.0@beta",
         "@tippyjs/react": "^4.2.5",
         "i18next": "^20.3.2",
         "lodash": "^4.17.21",

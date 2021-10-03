@@ -14,6 +14,10 @@ const StyledTooltip = styled(Tooltip)`
     & .tooltip-banner {
         padding: 19px;
     }
+
+    & .tooltip-image img {
+        filter: brightness(1.7);
+    }
 `;
 
 const PlayerTooltip = ({
