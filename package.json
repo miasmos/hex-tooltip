@@ -1,6 +1,6 @@
 {
     "name": "@stephenpoole/hex-tooltip",
-    "version": "1.0.24-beta.0",
+    "version": "1.0.24-beta.1",
     "description": "Tooltips for Dead by Daylight anywhere on the web.",
     "main": "dist/hex.tooltip.js",
     "types": "dist/index.d.ts",
