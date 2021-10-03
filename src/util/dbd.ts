@@ -13,7 +13,7 @@ class Dbd {
         const dbd = DeadByDaylight(language);
         const model = dbd.get(input);
 
-        if (tier && model.modifier === ModifierType.Perk) {
+        if (tier && model?.modifier === ModifierType.Perk) {
             (model as PerkModel).setTier(Number(tier));
         }
 

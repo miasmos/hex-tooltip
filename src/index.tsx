@@ -1,6 +1,7 @@
 /* eslint-disable indent */
 import React, { ReactElement } from "react";
 import ReactDOM from "react-dom";
+import * as DeadByDaylight from "@stephenpoole/deadbydaylight";
 import {
     AddonModel,
     ItemModel,
@@ -10,6 +11,7 @@ import {
     PerkModel,
     PlayerModel,
     PowerModel,
+    AnyModel,
 } from "@stephenpoole/deadbydaylight";
 import unescape from "lodash/unescape";
 import PerkTooltip from "./components/tooltips/Perk";
@@ -19,17 +21,16 @@ import OfferingTooltip from "./components/tooltips/Offering";
 import PowerTooltip from "./components/tooltips/Power";
 import PlayerTooltip from "./components/tooltips/Player";
 import App, { AppNoHoverComponent } from "./components/App";
-import Dbd from "./util/dbd";
-import { DbdModel } from "./types";
+import DbdUtil from "./util/dbd";
 
 const getTooltip =
-    (model: DbdModel): (() => ReactElement | undefined) =>
+    (model: AnyModel): (() => ReactElement | undefined) =>
     (isTooltipVisible = false) => {
         let tooltip: ReactElement | undefined;
         switch (model.modifier) {
             case ModifierType.Addon: {
                 const { rarity, name, description, flavor, owner, type, image } =
-                    model as AddonModel;
+                    model as unknown as AddonModel;
                 tooltip = (
                     <AddonTooltip
                         rarity={rarity}
@@ -163,11 +164,11 @@ const parse = (target: HTMLElement, language?: Language, tooltipOnly = false): v
 
     const parts = text.split(/(\[\[[^<>]*?\]\])/g);
     const regex = new RegExp(/^\[\[([^<>]*?)\]\]$/g);
-    const mounts: [DbdModel, string][] = [];
+    const mounts: [AnyModel, string][] = [];
     const elements = parts.map(text => {
         const [, rootText] = regex.exec(text) || [];
         if (rootText) {
-            const model = Dbd.toModel(unescape(rootText), newLanguage);
+            const model = DbdUtil.toModel(unescape(rootText), newLanguage);
 
             if (model) {
                 const className = `hex-tooltip-${Math.random().toString(16).substring(2)}`;
@@ -193,10 +194,14 @@ const parse = (target: HTMLElement, language?: Language, tooltipOnly = false): v
     }
 };
 
+const toModel = DbdUtil.toModel;
+
 export default parse;
 export {
+    parse,
+    toModel,
     App as HexTooltipApp,
-    Dbd as DeadByDaylight,
+    DeadByDaylight,
     AddonModel,
     ItemModel,
     ModifierType,

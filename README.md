@@ -1,4 +1,4 @@
-<img src="https://hextooltip.com/logo.svg" width="100" height="100"> 
+<img src="https://hextooltip.com/logo.svg" width="100" height="100">
 
 # Hex: Tooltip
 
@@ -11,7 +11,7 @@
 
 Tooltips for Dead by Daylight anywhere on the web.
 
-<img src="https://hextooltip.com/ruin.jpg" > 
+<img src="https://hextooltip.com/ruin.jpg" >
 
 ## Getting Started
 
@@ -40,14 +40,14 @@ In the browser globally
 ```
 
 2. Pass an HTMLElement containing a tooltip tag:
-[Try it out](https://codepen.io/stephenpoole/pen/bGRJqNe)  
+   [Try it out](https://codepen.io/stephenpoole/pen/bGRJqNe)
 
 ```html
 <div id="hex-tooltip"><span class="hex-tooltip-959f26b8824a7"></span></div>
 ```
 
 ```javascript
-HexTooltip(document.getElementById("hex-tooltip"));
+HexTooltip.parse(document.getElementById("hex-tooltip"));
 ```
 
 In the browser with webpack
@@ -61,7 +61,7 @@ import HexTooltip from "@stephenpoole/hex-tooltip";
 2. Pass an HTMLElement containing a tooltip tag:
 
 ```javascript
-HexTooltip(document.getElementById("hex-tooltip"));
+HexTooltip.parse(document.getElementById("hex-tooltip"));
 ```
 
 2a. or mount it in your React application
@@ -69,7 +69,7 @@ HexTooltip(document.getElementById("hex-tooltip"));
 ```javascript
 import HexTooltip, { HexTooltipApp, PerkTooltip, PerkModel, DeadByDaylight } from "@stephenpoole/hex-tooltip";
 
-const model = DeadByDaylight.toModel("Hex: Ruin");
+const model = HexTooltip.toModel("Hex: Ruin");
 const { rarity, name, description, flavor, owner } = model as PerkModel;
 
 <HexTooltipApp
@@ -94,24 +94,4 @@ You'll find the type documentation here:
 
 ## License
 
-MIT License
-
-Copyright (c) 2021 Stephen Poole
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+MIT

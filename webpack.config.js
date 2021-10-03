@@ -55,7 +55,6 @@ module.exports = (config, argv) => ({
         library: {
             name: "HexTooltip",
             type: "umd",
-            export: "default",
         },
         chunkFilename: "[name].[chunkhash].js",
     },
