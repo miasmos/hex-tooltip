@@ -11,6 +11,8 @@ import {
     PerkModel,
     PlayerModel,
     PowerModel,
+    MapModel,
+    RealmModel,
     AnyModel,
 } from "@stephenpoole/deadbydaylight";
 import unescape from "lodash/unescape";
@@ -209,4 +211,6 @@ export {
     PerkModel,
     PlayerModel,
     PowerModel,
+    MapModel,
+    RealmModel,
 };
