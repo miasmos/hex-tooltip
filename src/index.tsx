@@ -12,7 +12,10 @@ import {
     PlayerModel,
     PowerModel,
     AnyModel,
+    Rarity,
+    ItemType,
 } from "@stephenpoole/deadbydaylight";
+import Factories from "@stephenpoole/deadbydaylight/lib/factories";
 import unescape from "lodash/unescape";
 import PerkTooltip from "./components/tooltips/Perk";
 import AddonTooltip from "./components/tooltips/Addon";
@@ -20,13 +23,28 @@ import ItemTooltip from "./components/tooltips/Item";
 import OfferingTooltip from "./components/tooltips/Offering";
 import PowerTooltip from "./components/tooltips/Power";
 import PlayerTooltip from "./components/tooltips/Player";
+import AuthorTooltip from "./components/tooltips/Author";
 import App, { AppNoHoverComponent } from "./components/App";
 import DbdUtil from "./util/dbd";
+import { AuthorModel } from "./types";
 
 const getTooltip =
     (model: AnyModel): (() => ReactElement | undefined) =>
     (isTooltipVisible = false) => {
         let tooltip: ReactElement | undefined;
+
+        if (model.index === "NNEHL") {
+            const { name, description, flavor, image } = model as unknown as AuthorModel;
+            return (
+                <AuthorTooltip
+                    name={name}
+                    description={description}
+                    flavor={flavor}
+                    image={image}
+                />
+            );
+        }
+
         switch (model.modifier) {
             case ModifierType.Addon: {
                 const { rarity, name, description, flavor, owner, type, image } =
@@ -167,16 +185,39 @@ const parse = (target: HTMLElement, language?: Language, tooltipOnly = false): v
     const mounts: [AnyModel, string][] = [];
     const elements = parts.map(text => {
         const [, rootText] = regex.exec(text) || [];
-        if (rootText) {
-            const model = DbdUtil.toModel(unescape(rootText), newLanguage);
 
-            if (model) {
-                const className = `hex-tooltip-${Math.random().toString(16).substring(2)}`;
-                const span = `<span class="${className}"></span>`;
-                mounts.push([model, className]);
-                return span.toString();
-            }
+        const lowerRootText = (rootText || "").toLowerCase();
+        let model: AnyModel | undefined;
+        if (
+            lowerRootText === "nnehl" ||
+            lowerRootText === "author" ||
+            lowerRootText === "creator" ||
+            lowerRootText === "credit" ||
+            lowerRootText === "maker"
+        ) {
+            model = new AddonModel({} as Factories, {
+                index: "NNEHL",
+                owner: undefined,
+                id: 42069,
+                name: "Nnehl",
+                description:
+                    'You spend most of your time writing code and drinking caffeine. Typing speed increased by <span class="Highlight1">25%</span>.',
+                image: "",
+                flavor: '"Are you going outside today?" -Mom',
+                type: ItemType.None,
+                rarity: Rarity.Event,
+            }) as unknown as AnyModel;
+        } else if (rootText) {
+            model = DbdUtil.toModel(unescape(rootText), newLanguage);
         }
+
+        if (model) {
+            const className = `hex-tooltip-${Math.random().toString(16).substring(2)}`;
+            const span = `<span class="${className}"></span>`;
+            mounts.push([model, className]);
+            return span.toString();
+        }
+
         return rootText || text;
     });
 

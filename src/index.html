@@ -12,66 +12,79 @@
             margin-right: 10px;
         }
     </style>
+    <input type="text" id="text" />
     <div id="test1"></div>
+    <div id="test2">[[nnehl]]</div>
 
     <script>
         window.addEventListener("load", () => {
             let output = "";
             let showImage = false;
             const target = document.getElementById("test1");
+            const input = document.getElementById("text");
             const dbd = HexTooltip.DeadByDaylight.Client();
 
-            dbd.killers().forEach(item => {
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.powers().forEach(item => {
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.survivors().forEach(item => {
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.killerPerks().forEach(item => {
-                output += `<div class="test1">[[${item.name} 1]]</div>`;
-                output += `<div class="test1">[[${item.name} 2]]</div>`;
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.survivorPerks().forEach(item => {
-                output += `<div class="test1">[[${item.name} 1]]</div>`;
-                output += `<div class="test1">[[${item.name} 2]]</div>`;
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.killerAddons().forEach(item => {
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.survivorAddons().forEach(item => {
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.offerings().forEach(item => {
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.realms().forEach(item => {
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
-            });
-            dbd.maps().forEach(item => {
-                output += `<div class="test1">[[${item.name}]]</div>`;
-                if (showImage) output += `<img src="${item.image}"/>`;
+            HexTooltip.parse(document.getElementById("test2"));
+
+            input.addEventListener("input", event => {
+                const value = event.target.value;
+                target.innerHTML = `[[${value}]]`;
+                HexTooltip.parse(target, "en");
             });
 
-            output += '<div class="test1">[[the beast soot]]</div>';
-            target.innerHTML = output;
+            // dbd.killers().forEach(item => {
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.powers().forEach(item => {
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.survivors().forEach(item => {
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.killerPerks().forEach(item => {
+            //     output += `<div class="test1">[[${item.name} 1]]</div>`;
+            //     output += `<div class="test1">[[${item.name} 2]]</div>`;
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.survivorPerks().forEach(item => {
+            //     output += `<div class="test1">[[${item.name} 1]]</div>`;
+            //     output += `<div class="test1">[[${item.name} 2]]</div>`;
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.killerAddons().forEach(item => {
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.survivorAddons().forEach(item => {
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.offerings().forEach(item => {
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.realms().forEach(item => {
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
+            // dbd.maps().forEach(item => {
+            //     output += `<div class="test1">[[${item.name}]]</div>`;
+            //     if (showImage) output += `<img src="${item.image}"/>`;
+            // });
 
-            for (let item of document.getElementsByClassName("test1")) {
-                HexTooltip.parse(item, "en");
-            }
+            // output += '<div class="test1">[[hex: ruin]]</div>';
+            // output += '<div class="test1">[[jake park]]</div>';
+            // output += '<div class="test1">[[Jake Park]]</div>';
+            // target.innerHTML = output;
+
+            // for (let item of document.getElementsByClassName("test1")) {
+            //     HexTooltip.parse(item, "en");
+            // }
         });
     </script>
 </html>
