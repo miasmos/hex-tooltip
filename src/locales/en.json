@@ -6,6 +6,7 @@
     "addonSubtitle.named": "{{rarity}} {{name}} Add-On",
     "itemSubtitle": "{{rarity}} Item",
     "difficulty": "Difficulty: <span>{{difficulty}}</span>",
+    "maker": "Creator of Hex: Tooltip",
     "powerSubtitle": "Power",
     "common": "Common",
     "uncommon": "Uncommon",

@@ -732,10 +732,10 @@
     tslib "^2.0.0"
     upath "2.0.1"
 
-"@stephenpoole/deadbydaylight@^5.3.0-beta.2":
-  version "5.3.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@stephenpoole/deadbydaylight/-/deadbydaylight-5.3.0-beta.2.tgz#63574ddbcb597e2be614df6489527aee64f84e4e"
-  integrity sha512-akSXY3f9x/icT/ZVaSYdzL92Ub6HOO12UpNPNoCl3OMlcbtNg6vUADNRFE7xjurgZXz9XIUXCiJ016HvmNjwJw==
+"@stephenpoole/deadbydaylight@5.3.0-beta.7":
+  version "5.3.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@stephenpoole/deadbydaylight/-/deadbydaylight-5.3.0-beta.7.tgz#07461cccffee8ae9086776cc144cd90861396e58"
+  integrity sha512-kCW/ft41BhVKVFk9jAPZUda0ShOstdxuqvO8hFQ6Ei2TZUEzDzoSolzgvtBdqlDjNv4rt1PAk5REB8VpQJ3rnw==
   dependencies:
     "@babel/runtime" "^7.15.3"
     fuse.js "^6.4.6"
