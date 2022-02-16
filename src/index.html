@@ -32,61 +32,30 @@
                 HexTooltip.parse(target, "en");
             });
 
-            // dbd.killers().forEach(item => {
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.powers().forEach(item => {
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.survivors().forEach(item => {
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.killerPerks().forEach(item => {
-            //     output += `<div class="test1">[[${item.name} 1]]</div>`;
-            //     output += `<div class="test1">[[${item.name} 2]]</div>`;
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.survivorPerks().forEach(item => {
-            //     output += `<div class="test1">[[${item.name} 1]]</div>`;
-            //     output += `<div class="test1">[[${item.name} 2]]</div>`;
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.killerAddons().forEach(item => {
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.survivorAddons().forEach(item => {
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.offerings().forEach(item => {
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.realms().forEach(item => {
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
-            // dbd.maps().forEach(item => {
-            //     output += `<div class="test1">[[${item.name}]]</div>`;
-            //     if (showImage) output += `<img src="${item.image}"/>`;
-            // });
+            const killer = dbd.killer("ONRYO");
+            output += `<div class="test1">[[${killer.name}]]</div><br/>`;
+            output += `<div class="test1">[[${killer.power.name}]]</div><br/>`;
+            killer.perks.forEach(item => {
+                output += `<div class="test1">[[${item.name}]]</div>`;
+                if (showImage) output += `<img src="${item.image}"/>`;
+            });
+            output += "<br/>";
+            killer.addons.forEach(item => {
+                output += `<div class="test1">[[${item.name}]]</div>`;
+                if (showImage) output += `<img src="${item.image}"/>`;
+            });
 
-            // output += '<div class="test1">[[hex: ruin]]</div>';
-            // output += '<div class="test1">[[jake park]]</div>';
-            // output += '<div class="test1">[[Jake Park]]</div>';
-            // target.innerHTML = output;
-
-            // for (let item of document.getElementsByClassName("test1")) {
-            //     HexTooltip.parse(item, "en");
-            // }
-
-            console.log(dbd.get("agitation"));
+            const survivor = dbd.survivor("YOICHI_ASAKAWA");
+            output += `<div class="test1">[[${survivor.name}]]</div><br/>`;
+            survivor.perks.forEach(item => {
+                output += `<div class="test1">[[${item.name}]]</div>`;
+                if (showImage) output += `<img src="${item.image}"/>`;
+            });
+            survivor.addons.forEach(item => {
+                output += `<div class="test1">[[${item.name}]]</div>`;
+                if (showImage) output += `<img src="${item.image}"/>`;
+            });
+            target.innerHTML = output;
         });
     </script>
 </html>

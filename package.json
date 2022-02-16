@@ -29,7 +29,7 @@
     },
     "homepage": "https://github.com/stephenpoole/hex-tooltip#readme",
     "dependencies": {
-        "@stephenpoole/deadbydaylight": "^5.4.0-1",
+        "@stephenpoole/deadbydaylight": "^5.6.0",
         "@tippyjs/react": "^4.2.5",
         "i18next": "^20.3.2",
         "lodash": "^4.17.21",
