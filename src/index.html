@@ -56,6 +56,10 @@
                 if (showImage) output += `<img src="${item.image}"/>`;
             });
             target.innerHTML = output;
+
+            for (let item of document.getElementsByClassName("test1")) {
+                HexTooltip.parse(item, "en");
+            }
         });
     </script>
 </html>

@@ -24,6 +24,14 @@ import OfferingTooltip from "./components/tooltips/Offering";
 import PowerTooltip from "./components/tooltips/Power";
 import PlayerTooltip from "./components/tooltips/Player";
 import AuthorTooltip from "./components/tooltips/Author";
+import PerkTooltipBase from "./components/tooltips/PerkBase";
+import AddonTooltipBase from "./components/tooltips/AddonBase";
+import ItemTooltipBase from "./components/tooltips/ItemBase";
+import OfferingTooltipBase from "./components/tooltips/OfferingBase";
+import PowerTooltipBase from "./components/tooltips/PowerBase";
+import PlayerTooltipBase from "./components/tooltips/PlayerBase";
+import Translation from "./util/translation";
+import ClassName from "./util/className";
 import App, { AppNoHoverComponent } from "./components/App";
 import DbdUtil from "./util/dbd";
 import { AuthorModel } from "./types";
@@ -257,4 +265,12 @@ export {
     PowerTooltip,
     PlayerTooltip,
     AuthorTooltip,
+    PerkTooltipBase,
+    AddonTooltipBase,
+    ItemTooltipBase,
+    OfferingTooltipBase,
+    PowerTooltipBase,
+    PlayerTooltipBase,
+    Translation,
+    ClassName,
 };
