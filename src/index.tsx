@@ -250,4 +250,11 @@ export {
     PerkModel,
     PlayerModel,
     PowerModel,
+    PerkTooltip,
+    AddonTooltip,
+    ItemTooltip,
+    OfferingTooltip,
+    PowerTooltip,
+    PlayerTooltip,
+    AuthorTooltip,
 };
