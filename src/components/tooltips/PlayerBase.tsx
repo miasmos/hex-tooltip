@@ -5,6 +5,7 @@ import Tooltip from "./Tooltip";
 
 interface Props extends Pick<PlayerModel, "name" | "description" | "difficulty" | "image"> {
     showImage?: boolean;
+    showGradient?: boolean;
     subtitle: string | ReactElement;
 }
 
@@ -23,6 +24,7 @@ const PlayerTooltipBase = ({
     description,
     image,
     showImage = false,
+    showGradient = false,
     subtitle,
 }: Props): JSX.Element => (
     <StyledTooltip className="player-tooltip">
@@ -44,7 +46,7 @@ const PlayerTooltipBase = ({
                 <br />
                 <div className="tooltip-text" dangerouslySetInnerHTML={{ __html: description }} />
             </div>
-            <div className="tooltip-gradient" />
+            {showGradient && <div className="tooltip-gradient" />}
         </div>
     </StyledTooltip>
 );

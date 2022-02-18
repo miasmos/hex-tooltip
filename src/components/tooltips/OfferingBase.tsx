@@ -6,6 +6,7 @@ import Tooltip from "./Tooltip";
 interface Props
     extends Pick<OfferingModel, "rarity" | "name" | "description" | "flavor" | "image"> {
     showImage?: boolean;
+    showGradient?: boolean;
     subtitle: string;
 }
 
@@ -17,6 +18,7 @@ const OfferingTooltipBase = ({
     image,
     showImage = false,
     subtitle,
+    showGradient = false,
 }: Props): JSX.Element => {
     const rarity = ClassName.rarity(rarityNum);
 
@@ -38,7 +40,7 @@ const OfferingTooltipBase = ({
                 {!!flavor && (
                     <div className="tooltip-flavor" dangerouslySetInnerHTML={{ __html: flavor }} />
                 )}
-                <div className="tooltip-gradient" />
+                {showGradient && <div className="tooltip-gradient" />}
             </div>
         </Tooltip>
     );

@@ -4,6 +4,7 @@ import Tooltip from "./Tooltip";
 
 interface Props extends Pick<PowerModel, "name" | "description" | "image"> {
     showImage?: boolean;
+    showGradient?: boolean;
     subtitle: string;
 }
 
@@ -13,6 +14,7 @@ const PowerTooltipBase = ({
     image,
     subtitle,
     showImage = false,
+    showGradient = false,
 }: Props): JSX.Element => (
     <Tooltip className="power-tooltip">
         {showImage && (
@@ -28,7 +30,7 @@ const PowerTooltipBase = ({
         </div>
         <div className="tooltip-body">
             <div className="tooltip-text" dangerouslySetInnerHTML={{ __html: description }} />
-            <div className="tooltip-gradient" />
+            {showGradient && <div className="tooltip-gradient" />}
         </div>
     </Tooltip>
 );

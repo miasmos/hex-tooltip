@@ -11,6 +11,7 @@ interface Props
     extends Pick<PerkModel, "rarity" | "name" | "description" | "flavor" | "image">,
         Partial<Pick<PerkModel, "tier">> {
     showImage?: boolean;
+    showGradient?: boolean;
     subtitle: string;
 }
 
@@ -23,6 +24,7 @@ const PerkTooltipBase = ({
     image,
     subtitle,
     showImage = false,
+    showGradient = false,
 }: Props): JSX.Element => {
     const rarityClass = ClassName.rarity(rarityNum);
 
@@ -62,7 +64,7 @@ const PerkTooltipBase = ({
                 {!!flavor && (
                     <div className="tooltip-flavor" dangerouslySetInnerHTML={{ __html: flavor }} />
                 )}
-                <div className="tooltip-gradient" />
+                {showGradient && <div className="tooltip-gradient" />}
             </div>
         </Tooltip>
     );
