@@ -42,7 +42,8 @@ const getTooltip =
         let tooltip: ReactElement | undefined;
 
         if (model.index === "NNEHL") {
-            const { name, description, flavor, image } = model as unknown as AuthorModel;
+            const typedModel = model as unknown as AuthorModel;
+            const { name, description, flavor, image } = typedModel;
             return (
                 <AuthorTooltip
                     name={name}
@@ -55,8 +56,8 @@ const getTooltip =
 
         switch (model.modifier) {
             case ModifierType.Addon: {
-                const { rarity, name, description, flavor, owner, type, image } =
-                    model as unknown as AddonModel;
+                const typedModel = model as unknown as AddonModel;
+                const { rarity, name, description, flavor, owner, type } = typedModel;
                 tooltip = (
                     <AddonTooltip
                         rarity={rarity}
@@ -65,15 +66,15 @@ const getTooltip =
                         flavor={flavor}
                         owner={owner}
                         type={type}
-                        image={image}
+                        image={typedModel.imageUrl()}
                         showImage={isTooltipVisible}
                     />
                 );
                 break;
             }
             case ModifierType.Perk: {
-                const { rarity, name, description, flavor, owner, tier, image } =
-                    model as PerkModel;
+                const typedModel = model as unknown as PerkModel;
+                const { rarity, name, description, flavor, owner, tier } = typedModel;
                 tooltip = (
                     <PerkTooltip
                         rarity={rarity}
@@ -82,60 +83,64 @@ const getTooltip =
                         flavor={flavor}
                         owner={owner}
                         tier={tier}
-                        image={image}
+                        image={typedModel.imageUrl()}
                         showImage={isTooltipVisible}
                     />
                 );
                 break;
             }
             case ModifierType.Item: {
-                const { rarity, name, description, flavor, image } = model as ItemModel;
+                const typedModel = model as unknown as ItemModel;
+                const { rarity, name, description, flavor } = typedModel;
                 tooltip = (
                     <ItemTooltip
                         rarity={rarity}
                         name={name}
                         description={description}
                         flavor={flavor}
-                        image={image}
+                        image={typedModel.imageUrl()}
                         showImage={isTooltipVisible}
                     />
                 );
                 break;
             }
             case ModifierType.Player: {
-                const { name, description, difficulty, image } = model as PlayerModel;
+                const typedModel = model as unknown as PlayerModel;
+                const { name, description, difficulty } = typedModel;
                 tooltip = (
                     <PlayerTooltip
                         name={name}
                         description={description}
                         difficulty={difficulty}
-                        image={image}
+                        image={typedModel.imageUrl()}
                         showImage={isTooltipVisible}
                     />
                 );
                 break;
             }
             case ModifierType.Power: {
-                const { name, description, image } = model as PowerModel;
+                const typedModel = model as PowerModel;
+                const { name, description } = typedModel;
                 tooltip = (
                     <PowerTooltip
                         name={name}
                         description={description}
-                        image={image}
+                        image={typedModel.imageUrl()}
                         showImage={isTooltipVisible}
                     />
                 );
                 break;
             }
             case ModifierType.Offering: {
-                const { rarity, name, description, flavor, image } = model as OfferingModel;
+                const typedModel = model as OfferingModel;
+                const { rarity, name, description, flavor } = typedModel;
                 tooltip = (
                     <OfferingTooltip
                         rarity={rarity}
                         name={name}
                         description={description}
                         flavor={flavor}
-                        image={image}
+                        image={typedModel.imageUrl()}
                         showImage={isTooltipVisible}
                     />
                 );
