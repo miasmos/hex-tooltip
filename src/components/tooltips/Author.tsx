@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { AddonModel, Rarity } from "@stephenpoole/deadbydaylight";
+import { AddonModel, Rarity } from "@moonswelle/deadbydaylight";
 import Tooltip from "./Tooltip";
 import ClassName from "../../util/className";
 

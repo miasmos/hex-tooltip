@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import React, { ReactElement } from "react";
 import ReactDOM from "react-dom";
-import * as DeadByDaylight from "@stephenpoole/deadbydaylight";
+import * as DeadByDaylight from "@moonswelle/deadbydaylight";
 import {
     AddonModel,
     ItemModel,
@@ -12,10 +12,7 @@ import {
     PlayerModel,
     PowerModel,
     AnyModel,
-    Rarity,
-    ItemType,
-} from "@stephenpoole/deadbydaylight";
-import Factories from "@stephenpoole/deadbydaylight/lib/factories";
+} from "@moonswelle/deadbydaylight";
 import unescape from "lodash/unescape";
 import PerkTooltip from "./components/tooltips/Perk";
 import AddonTooltip from "./components/tooltips/Addon";
@@ -199,28 +196,8 @@ const parse = (target: HTMLElement, language?: Language, tooltipOnly = false): v
     const elements = parts.map(text => {
         const [, rootText] = regex.exec(text) || [];
 
-        const lowerRootText = (rootText || "").toLowerCase();
         let model: AnyModel | undefined;
-        if (
-            lowerRootText === "nnehl" ||
-            lowerRootText === "author" ||
-            lowerRootText === "creator" ||
-            lowerRootText === "credit" ||
-            lowerRootText === "maker"
-        ) {
-            model = new AddonModel({} as Factories, {
-                index: "NNEHL",
-                owner: undefined,
-                id: 42069,
-                name: "Nnehl",
-                description:
-                    'You spend most of your time writing code and drinking caffeine. Typing speed increased by <span class="Highlight1">25%</span>.',
-                image: "",
-                flavor: '"Are you going outside today?" -Mom',
-                type: ItemType.None,
-                rarity: Rarity.Event,
-            }) as unknown as AnyModel;
-        } else if (rootText) {
+        if (rootText) {
             model = DbdUtil.toModel(unescape(rootText), newLanguage);
         }
 

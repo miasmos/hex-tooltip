@@ -1,5 +1,5 @@
 import React from "react";
-import { AddonModel } from "@stephenpoole/deadbydaylight";
+import { AddonModel } from "@moonswelle/deadbydaylight";
 import ClassName from "../../util/className";
 import Tooltip from "./Tooltip";
 

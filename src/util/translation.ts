@@ -1,4 +1,4 @@
-import { Difficulty, ItemType, Rarity } from "@stephenpoole/deadbydaylight";
+import { Difficulty, ItemType, Rarity } from "@moonswelle/deadbydaylight";
 
 class Translation {
     static rarity(key: Rarity): string {

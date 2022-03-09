@@ -1,5 +1,5 @@
 import React from "react";
-import { PowerModel } from "@stephenpoole/deadbydaylight";
+import { PowerModel } from "@moonswelle/deadbydaylight";
 import Tooltip from "./Tooltip";
 
 interface Props extends Pick<PowerModel, "name" | "description" | "image"> {

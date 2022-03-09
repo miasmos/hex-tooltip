@@ -1,4 +1,4 @@
-import { Difficulty, ModifierType, PlayerType, Rarity } from "@stephenpoole/deadbydaylight";
+import { Difficulty, ModifierType, PlayerType, Rarity } from "@moonswelle/deadbydaylight";
 
 class ClassName {
     static rarity(value: Rarity): string {

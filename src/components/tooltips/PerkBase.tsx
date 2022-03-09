@@ -1,5 +1,5 @@
 import React from "react";
-import { PerkModel } from "@stephenpoole/deadbydaylight";
+import { PerkModel } from "@moonswelle/deadbydaylight";
 import Tooltip from "./Tooltip";
 import ClassName from "../../util/className";
 

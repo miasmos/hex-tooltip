@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
-import { PlayerModel } from "@stephenpoole/deadbydaylight";
+import { PlayerModel } from "@moonswelle/deadbydaylight";
 import Tooltip from "./Tooltip";
 
 interface Props extends Pick<PlayerModel, "name" | "description" | "difficulty" | "image"> {

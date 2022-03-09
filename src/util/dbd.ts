@@ -3,7 +3,7 @@ import DeadByDaylight, {
     Language,
     ModifierType,
     AnyModel,
-} from "@stephenpoole/deadbydaylight/all";
+} from "@moonswelle/deadbydaylight/all";
 
 class Dbd {
     static toModel(text: string, language = Language.English): AnyModel | undefined {
