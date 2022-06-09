@@ -1,4 +1,4 @@
-import { AddonModel } from "@moonswelle/deadbydaylight";
+import { AddonModel } from "@stephenpoole/deadbydaylight";
 
 type AuthorModel = Pick<AddonModel, "index" | "name" | "description" | "flavor" | "image">;
 

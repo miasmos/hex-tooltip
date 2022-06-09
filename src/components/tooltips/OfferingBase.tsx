@@ -1,5 +1,5 @@
 import React from "react";
-import { OfferingModel } from "@moonswelle/deadbydaylight";
+import { OfferingModel } from "@stephenpoole/deadbydaylight";
 import ClassName from "../../util/className";
 import Tooltip from "./Tooltip";
 

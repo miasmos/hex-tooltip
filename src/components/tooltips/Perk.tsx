@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { PerkModel } from "@moonswelle/deadbydaylight";
+import { PerkModel } from "@stephenpoole/deadbydaylight";
 import Translation from "../../util/translation";
 import PerkTooltipBase, { PerkTooltipBaseProps } from "./PerkBase";
 

@@ -1,7 +1,7 @@
 /* eslint-disable indent */
 import React, { ReactElement } from "react";
 import ReactDOM from "react-dom";
-import * as DeadByDaylight from "@moonswelle/deadbydaylight";
+import * as DeadByDaylight from "@stephenpoole/deadbydaylight";
 import {
     AddonModel,
     ItemModel,
@@ -12,7 +12,7 @@ import {
     PlayerModel,
     PowerModel,
     AnyModel,
-} from "@moonswelle/deadbydaylight";
+} from "@stephenpoole/deadbydaylight";
 import unescape from "lodash/unescape";
 import PerkTooltip from "./components/tooltips/Perk";
 import AddonTooltip from "./components/tooltips/Addon";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { AddonModel } from "@moonswelle/deadbydaylight";
+import { AddonModel } from "@stephenpoole/deadbydaylight";
 import Translation from "../../util/translation";
 import AddonTooltipBase, { AddonTooltipBaseProps } from "./AddonBase";
 

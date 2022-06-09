@@ -32,7 +32,7 @@
                 HexTooltip.parse(target, "en");
             });
 
-            const killer = dbd.killer("ONRYO");
+            const killer = dbd.killer("DREDGE");
             output += `<div class="test1">[[${killer.name}]]</div><br/>`;
             output += `<div class="test1">[[${killer.power.name}]]</div><br/>`;
             killer.perks.forEach(item => {
@@ -45,7 +45,7 @@
                 if (showImage) output += `<img src="${item.image}"/>`;
             });
 
-            const survivor = dbd.survivor("YOICHI_ASAKAWA");
+            const survivor = dbd.survivor("HADDIE_KAUR");
             output += `<div class="test1">[[${survivor.name}]]</div><br/>`;
             survivor.perks.forEach(item => {
                 output += `<div class="test1">[[${item.name}]]</div>`;
