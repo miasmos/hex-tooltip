@@ -732,13 +732,13 @@
     tslib "^2.0.0"
     upath "2.0.1"
 
-"@stephenpoole/deadbydaylight@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@stephenpoole/deadbydaylight/-/deadbydaylight-6.0.0.tgz#fdc79355b674cc7931afffb34bea2164af128707"
-  integrity sha512-pJDXP9+2IDcy0oUuacRWAtm2JMQloJ/6zuzfIuzEuBofdl2ySeZAeUTN4oshsiSt8VbURiD8Y+3B84AGN/KuSQ==
+"@stephenpoole/deadbydaylight@^6.0.0-5":
+  version "6.0.0-5"
+  resolved "https://registry.yarnpkg.com/@stephenpoole/deadbydaylight/-/deadbydaylight-6.0.0-5.tgz#f42272a26a12e5d4493dd7cb2338e178d4ec52ac"
+  integrity sha512-uT5Tudl7LVtvMj02v35/4p73bXzaDMAJ1OqMXarCBL8Us478GZYUE/kIbi3tfX5afsBCuayUdHPvPG22I8ZZ9g==
   dependencies:
     "@babel/runtime" "^7.16.7"
-    fuse.js "^6.4.6"
+    fuse.js "^6.6.2"
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
@@ -2986,10 +2986,10 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-fuse.js@^6.4.6:
-  version "6.4.6"
-  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-6.4.6.tgz#62f216c110e5aa22486aff20be7896d19a059b79"
-  integrity sha512-/gYxR/0VpXmWSfZOIPS3rWwU8SHgsRTwWuXhyb2O6s7aRuVtHtxCkR33bNYu3wyLyNx/Wpv0vU7FZy8Vj53VNw==
+fuse.js@^6.6.2:
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-6.6.2.tgz#fe463fed4b98c0226ac3da2856a415576dc9a111"
+  integrity sha512-cJaJkxCCxC8qIIcPBF9yGxY0W/tVZS3uEISDxhYIdtk8OL93pe+6Zj7LjCqVV4dzbqcriOZ+kQ/NE4RXZHsIGA==
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
