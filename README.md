@@ -29,10 +29,6 @@ With yarn:
 yarn add @stephenpoole/hex-tooltip
 ```
 
-## Support
-
-To support the development of Hex: Tooltip, head over to [hextooltip.com](https://hextooltip.com) and click the Donate button. Any donations are greatly appreciated.
-
 ## Usage
 
 In the browser globally
