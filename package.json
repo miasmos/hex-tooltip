@@ -1,6 +1,6 @@
 {
     "name": "@stephenpoole/hex-tooltip",
-    "version": "1.0.37",
+    "version": "1.0.38",
     "description": "Tooltips for Dead by Daylight anywhere on the web.",
     "main": "dist/hex.tooltip.js",
     "types": "dist/index.d.ts",
@@ -29,7 +29,7 @@
     },
     "homepage": "https://github.com/stephenpoole/hex-tooltip#readme",
     "dependencies": {
-        "@stephenpoole/deadbydaylight": "^6.0.0-6",
+        "@stephenpoole/deadbydaylight": "^6.1.0",
         "@tippyjs/react": "^4.2.5",
         "i18next": "^20.3.2",
         "lodash": "^4.17.21",
